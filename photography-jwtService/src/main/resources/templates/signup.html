@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title tiles:fragment="title">Please Sign Up</title>
+  </head>
+  <body>
+  
+  <h1>HI THERE! THIS PAGE WILL LOAD UP</h1>
+    <div tiles:fragment="content">
+        <form name="fsignup" th:object="${signupForm}" th:action="@{/myapp/authService/signupPage}" method="post">
+	        <fieldset>
+	            <legend>Please Sign Up</legend>
+                <div th:if="${param.error}" class="alert alert-error">
+                    Invalid username and password.
+                </div>
+	            <label for="first_name">First Name</label>
+	            <input type="text" id="first_name" name="first_name" th:field="*{first_name}"/>
+	            <label for="last_name">Last Name</label>
+	            <input type="text" id="last_name" name="last_name" th:field="*{last_name}"/>
+	            <label for="username">Email</label>
+	            <input type="text" id="username" name="username" th:field="*{email}"/>
+	            <label for="password">Password</label>
+	            <input type="password" id="password" name="password" th:field="*{pass_word}"/>
+	            <div class="form-actions">
+	                <button type="submit" class="btn">Sign Up</button>
+	            </div>
+	        </fieldset>
+	    </form>
+    </div>
+  </body>
+</html>

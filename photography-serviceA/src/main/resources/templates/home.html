@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title tiles:fragment="title">Home Page</title>
+</head>
+
+<body>
+
+	<h1>HI THERE, WELCOME TO MY HOME PAGE</h1>
+	<img src="images/pig.jpg" alt="" width="300" />
+	<tbody>
+		<tr th:each="phtgrphr: ${photographers}">
+			<td th:text="${phtgrphr.photographer_id}" />
+			<td th:text="${phtgrphr.photographer}" />
+			<td th:text="${phtgrphr.email}" />
+			<td th:text="${phtgrphr.photographer_url}" />
+		</tr>
+	</tbody>
+	<div tiles:fragment="content">
+		<form name="flogout" th:action="@{/myapp/serviceA/uploadPage}" method="get">
+			<div class="form-actions">
+				<button type="submit" class="btn">Upload Photo</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
